@@ -1,0 +1,295 @@
+*myhelp.txt*    For NVIM version 0.2.0  Last change: 2018-12-03
+*myhelp*
+
+Jons's personal cheat sheet for Vim.
+
+===============================================================================
+CONTENTS
+
+  1. Reloading your vim configuration.....................|myhelp-config-reload|
+  2. Movement..................................................|myhelp-movement|
+  3. Operators................................................|myhelp-operators|
+  4. Search......................................................|myhelp-search|
+  5. Search and replace (substitute)................ |myhelp-search-and-replace|
+  6. Search and replace project wide....|myhelp-search-and-replace-project-wide|
+  7. YankMatches............................................|myhelp-yankmatches|
+  8. Record and playback macros..................................|myhelp-macros|
+  9. Marks........................................................|myhelp-marks|
+  10. Global Marks.........................................|myhelp-global-marks|
+  11. Command line.........................................|myhelp-command-line|
+  12. Insert mode...........................................|myhelp-insert-mode|
+  13. Custom bindings...................................|myhelp-custom-bindings|
+  14. Ranges.....................................................|myhelp-ranges|
+  15. Global.....................................................|myhelp-global|
+  16. Git...........................................................|myhelp-git|
+  17. Misc.........................................................|myhelp-misc|
+  18. This cheatsheet........................................|myhelp-cheatsheet|
+
+===============================================================================
+1. Reloading your vim configuration                       *myhelp-config-reload*
+
+   - :so % : Reloads your vim configuration while editing.
+   - :so $MYVIMRC : Reloads your vim configuration while editing another file.
+
+===============================================================================
+2. Movement                                                    *myhelp-movement*
+
+|  Command                        | Description |
+| ------------------------------- | ----------- |
+| `i`                             | insert mode before character under cursor
+| `a`                             | insert mode after character under cursor
+| `I`                             | insert mode at the beginning of current line
+| `A`                             | insert mode at the end of current line
+| `s`                             | change caracter under cursor
+|
+| `ea`                            | insert mode after word
+| `bi`                            | insert mode before word
+| `wi`                            | insert mode after word and space
+|
+| `f{character}`                  | move cursor to first occurence of target character
+| `t{character}`                  | move cursor to character before first target character
+| `_`                             | first non blank character on line (aka start of line
+
+
+===============================================================================
+3. Operators                                                  *myhelp-operators*
+
+|  Command                        | Description |
+| ------------------------------- | ----------- |
+| `c{motion}`                     | change
+| `d{motion}`                     | delete
+| `y{motion}`                     | yank
+| `=`                             | autoindent
+| `g~`                            | swap case
+| `gu`                            | make lowercase
+| `gU`                            | make uppercase
+| `>`                             | shift right
+| `<`                             | shift left
+| `D`                             | delete to end of line
+| `C`                             | change to end of line
+
+### example operator combined with movements
+
+|  Command                        | Description |
+| ------------------------------- | ----------- |
+| `dd`                            | delete a line
+| `yy`                            | yank a line
+| `cc`                            | change a line
+| 
+| `daw`                           | delete a word
+| `diw`                           | delete a word
+| `dt{character}`                 | delete to just before character
+| `df{character}`                 | delete to character
+| `dit`                           | delete in tag
+| 
+| `caw`                           | change a word
+| `ciw`                           | change a word
+| `ct{character}`                 | change to just before character
+| `cf{character}`                 | change to character
+| `cit`                           | change in tag
+| 
+| `yaw`                           | yank a word
+| `yiw`                           | yank a word
+| `yt{character}`                 | yank to just before character
+| `yf{character}`                 | yank to character
+| `yit`                           | yank in tag
+| 
+| `.`                             | repeat last change
+| `;`                             | repeat last find (f{character})
+| 
+| `<C-A>`                         | increment (or add to) first integer on line
+| `<C-X>`                         | decrament (or add to) first integer on line
+
+===============================================================================
+4. Search                                                        *myhelp-search*
+
+|  Command                        | Description |
+| ------------------------------- | ----------- |
+| `:grep`                         | find across multiple files 
+| `/`                             | find in current buffer
+| `*`                             | find word under cursor
+| `cgn`                           | change next search result
+| `:%s///gn`                      | count matches of last search in current file 
+
+Using FZF <ctrl>s will search for string or regex in all files in project
+(https://github.com/junegunn/fzf)
+
+===============================================================================
+5. Search and replace (substitute)                   *myhelp-search-and-replace*
+
+|  Command                        | Description |
+| ------------------------------- | ----------- |
+| `%s/test/test2/g`               | replace all occurences of test with test2 in entire file
+| `%s//123/gc`                    | replace all occurences of previous search with 123 and asks for confirmation for each replacement
+| `0,+3s/\(\w\+\): \('\w\+'\)/\2: \1` | ex of how to swap key with value in js object `prop1: '123'` becomes `'123': prop1`
+
+
+===============================================================================
+6. Search and replace project wide      *myhelp-search-and-replace-project-wide*
+
+|  Command                        | Description |
+| ------------------------------- | ----------- |
+| `:Ack`                          | mySearchTerm /src/files.txt (my target location takes glob patterns)
+| `:cdo s/mySearchTerm/replacementTerm/g | update` | Apply changes to all files in list (:cdo will do any command on each entry in the quickfix list)
+
+The ag.vim plugin serves as a front for the the_silver_searcher. This is 
+essentially grep for programmers allowing for quick searching across your files. 
+The power of :Ag is using Ag to search and replace for a given string across all 
+the files in your project. 
+
+```
+:args `ag -l string_to_replace .`
+:argdo %s/string_to_search/replacement_string/g | w
+```
+
+===============================================================================
+7. YankMatches                                              *myhelp-yankmatches*
+
+Yank pattern to register (using the extractmatches plugin)
+
+|  Command                        | Description |
+| ------------------------------- | ----------- |
+| `/myPattern \d\+`               | 1. search for pattern
+| `:YankMatches//x`               | yank matches to any register x in this case
+| `"xp`                           | paste register x
+
+===============================================================================
+8. Record and playback macros                                    *myhelp-macros*
+
+|  Command                        | Description |
+| ------------------------------- | ----------- |
+| `qq`                            | start recording macro at register q
+| `@q`                            | replay macro at register q
+
+===============================================================================
+9. Marks                                                          *myhelp-marks*
+
+|  Command                        | Description |
+| ------------------------------- | ----------- |
+| `mm`                            | set mark at m
+| `'m`                            | go to mark m
+
+===============================================================================
+10. Global Marks                                            *myhelp-global-marks*
+
+|  Command                        | Description |
+| ------------------------------- | ----------- |
+| `'I`                            | init.vim
+| `'C`                            | vim-cheatsheet
+
+===============================================================================
+11. Command line                                            *myhelp-command-line*
+
+|  Command                        | Description |
+| ------------------------------- | ----------- |
+| `:m`                            | move - [from,to]m[target]
+| `:t`                            | copy - [from,to]t[target]
+| `:g`                            | global {cmdj} - [from,to]g{cmd}
+| 
+| `:copen`                        | open quickfix list
+| `:cclose`                       | close quickfix list
+| `:cnext`                        | next item in quickfix list
+| `:cprev`                        | prev item in quickfix list
+
+# Run normal mode commands across a range
+We have the following javascript lines and we forgot to append ;  to each of them:
+```
+var element = $(this)
+var tabName = element.data('tab')
+var report = element.data('report')
+```
+We can visually select all 3 lines and then run command `:normal A;`  that will execute A; (append ;) for each line. Alternatively, we can run same on the whole content of the file with `:%normal A;`
+
+# Repeat last change on multiple lines
+What if we did a single modification on the first line of the above snippet appending ; at the end of the line with A;. We can repeat that command by selecting the lines 2-3 and running the dot command over visual selection with :'<,'> normal .
+
+(from https://dalibornasevic.com/posts/43-12-vim-tips)
+
+===============================================================================
+12. Insert mode                                              *myhelp-insert-mode*
+|  Command                        | Description |
+| ------------------------------- | ----------- |
+| `<C-r>=`                        | opens the expression register to do ex calculations and insert result
+
+===============================================================================
+13. Custom bindings                                      *myhelp-custom-bindings*
+
+|  Command                        | Description |
+| ------------------------------- | ----------- |
+| `<c-v>`                         | ultisnips expand trigger
+| ` {char}`                      | easymotion
+
+===============================================================================
+14. Ranges                                                        *myhelp-ranges*
+Works with alot of different commands ex: y, c, d, m, t, g
+[http://vim.wikia.com/wiki/Ranges](http://vim.wikia.com/wiki/Ranges)
+`:h range`
+Line numbers may be specified with: *:range* *E14* *{address}*
+
+### Examples
+
+#### search as range
+`:/To have/,/This is/m.` move lines between 'To have' and 'This is' to current line
+
+#### numbers
+`:+10m.` move line 10 lines below current line to current line
+
+#### entire file
+`:%y` (yank entire file)
+
+
+===============================================================================
+15. Global                                                        *myhelp-global*
+`:h global`
+`:[range]g[lobal]/{pattern}/[cmd]`
+
+### Examples
+#### global with pattern
+`:g/\d/d` delete all rows that contains a number
+
+#### global with inverted pattern
+`:g!/\d/d` delete all rows that does not contain a number
+
+#### global with range and pattern
+`:+7,+12g/\d/norm cf.-` find all numbers in the range 7 lines to 12 lines down and replace everything up to (and including) the period with a dash
+
+#### global with marks append matching patterns to file
+Between lines with marks a and b (inclusive), append each line starting with "Error" to a file:
+`:'a,'b g/^Error/ .w >> errors.txt`
+
+===============================================================================
+16. Git                                                              *myhelp-git*
+
+### Fugitive
+`:Gedit branch:/foo/bar.c` Open file in different branch
+
+===============================================================================
+17. Misc                                                            *myhelp-misc*
+
+### Sync scroll between splits
+`:set scb!` to toggle scroll sync
+
+### Profile slow plugins
+```
+:profile start profile.log
+:profile func *
+:profile file *
+" At this point do slow actions
+:profile pause
+:noautocmd qall!
+```
+
+===============================================================================
+18. This cheatsheet                                           *myhelp-cheatsheet*
+
+The contents of this cheatsheet should be stored at 
+`~/.config/nvim/plugged/vim-myhelp/doc/myhelp.txt`
+
+You can create a `tags` file that allows you to then type 
+`:h myhelp-cheatsheet` to quickly jump here. The command to do that is
+
+```
+helpt ~/.config/nvim/plugged/vim-myhelp
+```
+
+# vim: filetype=help:ts=2
