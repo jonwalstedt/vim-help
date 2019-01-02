@@ -111,6 +111,9 @@ CONTENTS
 | `*`                             | find word under cursor
 | `cgn`                           | change next search result
 | `:%s///gn`                      | count matches of last search in current file 
+| `/FOO\C`                        | \c to ignore case \C to not ignore case when searching
+| `//e`                           | redo last search but place cursor at the end of match
+
 
 Using FZF <ctrl>s will search for string or regex in all files in project
 (https://github.com/junegunn/fzf)
