@@ -23,7 +23,8 @@ CONTENTS
   15. Global.....................................................|myhelp-global|
   16. Git...........................................................|myhelp-git|
   17. Misc.........................................................|myhelp-misc|
-  18. This cheatsheet........................................|myhelp-cheatsheet|
+  18. Shell commands.....................................|myhelp-shell-commands|
+  19. This cheatsheet........................................|myhelp-cheatsheet|
 
 ===============================================================================
 1. Reloading your vim configuration                       *myhelp-config-reload*
@@ -280,7 +281,37 @@ Between lines with marks a and b (inclusive), append each line starting with "Er
 ```
 
 ===============================================================================
-18. This cheatsheet                                           *myhelp-cheatsheet*
+18. Shell commands                                        *myhelp-shell-commands*
+
+To run a shell command just prefix with a `!`.
+Example:
+`!ls` To list all files in current folder and
+`.!ls` To append the list of all files in current folder into the buffer
+
+you can pipe the contents of the file currently being edited (the current
+buffer) to a shell command, and replace the current file/buffer with the
+output of that command, using this:
+
+To replace file contents with command output
+`:%! [cmd]`
+
+
+To replace selected contents with command output
+`:'<,'>! [cmd]`
+
+
+Example:
+Visually select the following rows and run the following command `:'<,'>! node`
+```
+let markup = '';
+[1, 2, 3, 4, 5].forEach(i => {
+  markup += `<span>${i} example markup</span>\n`;
+});
+console.log(markup);
+```
+
+================================================================================
+19. This cheatsheet                                           *myhelp-cheatsheet*
 
 The contents of this cheatsheet should be stored at 
 `~/.config/nvim/plugged/vim-myhelp/doc/myhelp.txt`
