@@ -18,6 +18,7 @@ myhelp-ranges	myhelp.txt	/*myhelp-ranges*
 myhelp-search	myhelp.txt	/*myhelp-search*
 myhelp-search-and-replace	myhelp.txt	/*myhelp-search-and-replace*
 myhelp-search-and-replace-project-wide	myhelp.txt	/*myhelp-search-and-replace-project-wide*
+myhelp-shell-commands	myhelp.txt	/*myhelp-shell-commands*
 myhelp-yankmatches	myhelp.txt	/*myhelp-yankmatches*
 myhelp.txt	myhelp.txt	/*myhelp.txt*
 {address}	myhelp.txt	/*{address}*

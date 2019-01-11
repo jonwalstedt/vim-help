@@ -76,28 +76,28 @@ CONTENTS
 | `dd`                            | delete a line
 | `yy`                            | yank a line
 | `cc`                            | change a line
-| 
+|
 | `daw`                           | delete a word
 | `diw`                           | delete a word
 | `dt{character}`                 | delete to just before character
 | `df{character}`                 | delete to character
 | `dit`                           | delete in tag
-| 
+|
 | `caw`                           | change a word
 | `ciw`                           | change a word
 | `ct{character}`                 | change to just before character
 | `cf{character}`                 | change to character
 | `cit`                           | change in tag
-| 
+|
 | `yaw`                           | yank a word
 | `yiw`                           | yank a word
 | `yt{character}`                 | yank to just before character
 | `yf{character}`                 | yank to character
 | `yit`                           | yank in tag
-| 
+|
 | `.`                             | repeat last change
 | `;`                             | repeat last find (f{character})
-| 
+|
 | `<C-A>`                         | increment (or add to) first integer on line
 | `<C-X>`                         | decrament (or add to) first integer on line
 
@@ -106,11 +106,11 @@ CONTENTS
 
 |  Command                        | Description |
 | ------------------------------- | ----------- |
-| `:grep`                         | find across multiple files 
+| `:grep`                         | find across multiple files
 | `/`                             | find in current buffer
 | `*`                             | find word under cursor
 | `cgn`                           | change next search result
-| `:%s///gn`                      | count matches of last search in current file 
+| `:%s///gn`                      | count matches of last search in current file
 | `/FOO\C`                        | \c to ignore case \C to not ignore case when searching
 | `//e`                           | redo last search but place cursor at the end of match
 
@@ -136,10 +136,10 @@ Using FZF <ctrl>s will search for string or regex in all files in project
 | `:Ack`                          | mySearchTerm /src/files.txt (my target location takes glob patterns)
 | `:cdo s/mySearchTerm/replacementTerm/g | update` | Apply changes to all files in list (:cdo will do any command on each entry in the quickfix list)
 
-The ag.vim plugin serves as a front for the the_silver_searcher. This is 
-essentially grep for programmers allowing for quick searching across your files. 
-The power of :Ag is using Ag to search and replace for a given string across all 
-the files in your project. 
+The ag.vim plugin serves as a front for the the_silver_searcher. This is
+essentially grep for programmers allowing for quick searching across your files.
+The power of :Ag is using Ag to search and replace for a given string across all
+the files in your project.
 
 ```
 :args `ag -l string_to_replace .`
@@ -189,7 +189,7 @@ Yank pattern to register (using the extractmatches plugin)
 | `:m`                            | move - [from,to]m[target]
 | `:t`                            | copy - [from,to]t[target]
 | `:g`                            | global {cmdj} - [from,to]g{cmd}
-| 
+|
 | `:copen`                        | open quickfix list
 | `:cclose`                       | close quickfix list
 | `:cnext`                        | next item in quickfix list
@@ -265,7 +265,18 @@ Between lines with marks a and b (inclusive), append each line starting with "Er
 16. Git                                                              *myhelp-git*
 
 ### Fugitive
+You can use `:Gedit/:Gsplit/:Gvsplit/...` with the form
+`{revision}:{filename}`
+
+`:Gedit branch:/foo/bar.c`
+Note: If the file is the same as the current file you can abbreviate the command like so: `:Gsplit branch:%` .
+
+It is often the case that a diff of the current file is preferred than just opening the file on a different branch. You can do this via `:Gdiff {branch}` .
+
 `:Gedit branch:/foo/bar.c` Open file in different branch
+
+<localleader><space> to toggle git status panel
+<localleader>b to toggle git branch panel
 
 ===============================================================================
 17. Misc                                                            *myhelp-misc*
@@ -316,10 +327,10 @@ console.log(markup);
 ================================================================================
 19. This cheatsheet                                           *myhelp-cheatsheet*
 
-The contents of this cheatsheet should be stored at 
+The contents of this cheatsheet should be stored at
 `~/.config/nvim/plugged/vim-myhelp/doc/myhelp.txt`
 
-You can create a `tags` file that allows you to then type 
+You can create a `tags` file that allows you to then type
 `:h myhelp-cheatsheet` to quickly jump here. The command to do that is
 
 ```
