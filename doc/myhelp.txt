@@ -266,7 +266,18 @@ Between lines with marks a and b (inclusive), append each line starting with "Er
 16. Git                                                              *myhelp-git*
 
 ### Fugitive
+You can use `:Gedit/:Gsplit/:Gvsplit/...` with the form
+`{revision}:{filename}`
+
+`:Gedit branch:/foo/bar.c`
+Note: If the file is the same as the current file you can abbreviate the command like so: `:Gsplit branch:%` .
+
+It is often the case that a diff of the current file is preferred than just opening the file on a different branch. You can do this via `:Gdiff {branch}` .
+
 `:Gedit branch:/foo/bar.c` Open file in different branch
+
+<localleader><space> to toggle git status panel
+<localleader>b to toggle git branch panel
 
 ===============================================================================
 17. Misc                                                            *myhelp-misc*
