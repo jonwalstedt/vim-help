@@ -1,23 +1,9 @@
-:range	doc/myhelp.txt	/*:range*
-E14	doc/myhelp.txt	/*E14*
-myhelp	doc/myhelp.txt	/*myhelp*
-myhelp-cheatsheet	doc/myhelp.txt	/*myhelp-cheatsheet*
-myhelp-command-line	doc/myhelp.txt	/*myhelp-command-line*
-myhelp-config-reload	doc/myhelp.txt	/*myhelp-config-reload*
-myhelp-custom-bindings	doc/myhelp.txt	/*myhelp-custom-bindings*
-myhelp-git	doc/myhelp.txt	/*myhelp-git*
-myhelp-global	doc/myhelp.txt	/*myhelp-global*
-myhelp-global-marks	doc/myhelp.txt	/*myhelp-global-marks*
-myhelp-insert-mode	doc/myhelp.txt	/*myhelp-insert-mode*
-myhelp-macros	doc/myhelp.txt	/*myhelp-macros*
-myhelp-marks	doc/myhelp.txt	/*myhelp-marks*
-myhelp-misc	doc/myhelp.txt	/*myhelp-misc*
-myhelp-movement	doc/myhelp.txt	/*myhelp-movement*
-myhelp-operators	doc/myhelp.txt	/*myhelp-operators*
-myhelp-ranges	doc/myhelp.txt	/*myhelp-ranges*
-myhelp-search	doc/myhelp.txt	/*myhelp-search*
-myhelp-search-and-replace	doc/myhelp.txt	/*myhelp-search-and-replace*
-myhelp-search-and-replace-project-wide	doc/myhelp.txt	/*myhelp-search-and-replace-project-wide*
-myhelp-yankmatches	doc/myhelp.txt	/*myhelp-yankmatches*
-myhelp.txt	doc/myhelp.txt	/*myhelp.txt*
-{address}	doc/myhelp.txt	/*{address}*
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/3d01d993/
+How to install	README.md	/^# How to install$/;"	c
+Vim Cheatsheet	README.md	/^# Vim Cheatsheet$/;"	c

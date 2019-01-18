@@ -2,6 +2,7 @@
 *myhelp*
 
 Jons's personal cheat sheet for Vim.
+(reminder navigate tags with `C-]`)
 
 ===============================================================================
 CONTENTS
@@ -22,10 +23,11 @@ CONTENTS
   14. Ranges.....................................................|myhelp-ranges|
   15. Global.....................................................|myhelp-global|
   16. Git...........................................................|myhelp-git|
-  17. Misc.........................................................|myhelp-misc|
-  18. Shell commands.....................................|myhelp-shell-commands|
-  19. Netrw.......................................................|myhelp-netrw|
-  20. This cheatsheet........................................|myhelp-cheatsheet|
+  17. Squash and rebase...............................|myhelp-squash-and-rebase|
+  18. Misc.........................................................|myhelp-misc|
+  19. Shell commands.....................................|myhelp-shell-commands|
+  20. Netrw.......................................................|myhelp-netrw|
+  21. This cheatsheet........................................|myhelp-cheatsheet|
 
 ===============================================================================
 1. Reloading your vim configuration                       *myhelp-config-reload*
@@ -279,6 +281,67 @@ It is often the case that a diff of the current file is preferred than just open
 <localleader><space> to toggle git status panel
 <localleader>b to toggle git branch panel
 
+===============================================================================
+17. Squash and rebase workflow                         *myhelp-squash-and-rebase*
+
+What is the squash rebase workflow?
+It’s simple – before you merge a feature branch back into your main branch (often master or develop), your feature branch should be squashed down to a single buildable commit, and then rebased from the up-to-date main branch. Here’s a breakdown.
+
+Pull master branch
+
+`git pull origin master`
+
+Create bug/feature branch
+
+`git checkout -b branchName`
+
+Make changes as needed with as many commits that you need to. Make sure the final commit is buildable and all tests pass.
+
+Get the number of commits from the start of your branch. There are a couple of ways to get this. You can simply git log and count your commits, or
+
+`git log --graph --decorate --pretty=oneline --abbrev-commit`
+
+which will show a graph of your commit log history and may be easier to visualize your commits. Sometimes you will have large enough number of commits that counting can become troublesome. In that case grab the SHA from the last commit that your branch branches from.
+
+Squash to 1 commit.
+
+`git rebase -i HEAD~[NUMBER OF COMMITS]``
+
+OR
+
+`git rebase -i [SHA]`
+
+If you have previously pushed your code to a remote branch, you will need to force push.
+
+`git push origin branchName --force`
+
+Checkout master branch
+
+`git checkout master`
+
+Pull master branch
+
+`git pull origin master`
+
+Checkout bug/feature branch
+
+`git checkout branchName`
+
+Rebase from master
+
+`git rebase master`
+
+Handle any conflicts and make sure your code builds and all tests pass. Force push branch to remote.
+
+`git push origin branchName --force`
+
+Checkout, merge, and push into master
+
+`git checkout master`
+
+`git merge branchName`
+
+`git push origin master`
 ===============================================================================
 17. Misc                                                            *myhelp-misc*
 
