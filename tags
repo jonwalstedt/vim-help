@@ -1,7 +1,5 @@
 :range	doc/myhelp.txt	/*:range*
 E14	doc/myhelp.txt	/*E14*
-How to install	README.md	/^# How to install$/;"	c
-Vim Cheatsheet	README.md	/^# Vim Cheatsheet$/;"	c
 myhelp	doc/myhelp.txt	/*myhelp*
 myhelp-cheatsheet	doc/myhelp.txt	/*myhelp-cheatsheet*
 myhelp-command-line	doc/myhelp.txt	/*myhelp-command-line*
@@ -10,6 +8,7 @@ myhelp-custom-bindings	doc/myhelp.txt	/*myhelp-custom-bindings*
 myhelp-git	doc/myhelp.txt	/*myhelp-git*
 myhelp-global	doc/myhelp.txt	/*myhelp-global*
 myhelp-global-marks	doc/myhelp.txt	/*myhelp-global-marks*
+myhelp-gv	doc/myhelp.txt	/*myhelp-gv*
 myhelp-insert-mode	doc/myhelp.txt	/*myhelp-insert-mode*
 myhelp-macros	doc/myhelp.txt	/*myhelp-macros*
 myhelp-marks	doc/myhelp.txt	/*myhelp-marks*

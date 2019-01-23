@@ -22,7 +22,7 @@ CONTENTS
   13. Custom bindings...................................|myhelp-custom-bindings|
   14. Ranges.....................................................|myhelp-ranges|
   15. Global.....................................................|myhelp-global|
-  16. Git...........................................................|myhelp-git|
+  16. Git.................................................|myhelp-git| |myhelp-gv|
   17. Squash and rebase...............................|myhelp-squash-and-rebase|
   18. Misc.........................................................|myhelp-misc|
   19. Shell commands.....................................|myhelp-shell-commands|
@@ -265,7 +265,7 @@ Between lines with marks a and b (inclusive), append each line starting with "Er
 `:'a,'b g/^Error/ .w >> errors.txt`
 
 ===============================================================================
-16. Git                                                              *myhelp-git*
+16. Git                                                     *myhelp-gv* *myhelp-git*
 
 ### Fugitive
 You can use `:Gedit/:Gsplit/:Gvsplit/...` with the form
