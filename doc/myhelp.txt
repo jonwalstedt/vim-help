@@ -130,6 +130,7 @@ Using FZF <ctrl>s will search for string or regex in all files in project
 | `%s//123/gc`                    | replace all occurences of previous search with 123 and asks for confirmation for each replacement
 | `0,+3s/\(\w\+\): \('\w\+'\)/\2: \1` | ex of how to swap key with value in js object `prop1: '123'` becomes `'123': prop1`
 
+Use \zs and \ze to delimit the visible or selected part of a match.
 
 ===============================================================================
 6. Search and replace project wide      *myhelp-search-and-replace-project-wide*
