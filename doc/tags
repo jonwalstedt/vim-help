@@ -8,6 +8,7 @@ myhelp-custom-bindings	myhelp.txt	/*myhelp-custom-bindings*
 myhelp-git	myhelp.txt	/*myhelp-git*
 myhelp-global	myhelp.txt	/*myhelp-global*
 myhelp-global-marks	myhelp.txt	/*myhelp-global-marks*
+myhelp-gv	myhelp.txt	/*myhelp-gv*
 myhelp-insert-mode	myhelp.txt	/*myhelp-insert-mode*
 myhelp-macros	myhelp.txt	/*myhelp-macros*
 myhelp-marks	myhelp.txt	/*myhelp-marks*

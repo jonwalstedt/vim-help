@@ -21,6 +21,7 @@ myhelp-search	doc/myhelp.txt	/*myhelp-search*
 myhelp-search-and-replace	doc/myhelp.txt	/*myhelp-search-and-replace*
 myhelp-search-and-replace-project-wide	doc/myhelp.txt	/*myhelp-search-and-replace-project-wide*
 myhelp-shell-commands	doc/myhelp.txt	/*myhelp-shell-commands*
+myhelp-split-diff	doc/myhelp.txt	/*myhelp-split-diff*
 myhelp-squash-and-rebase	doc/myhelp.txt	/*myhelp-squash-and-rebase*
 myhelp-yankmatches	doc/myhelp.txt	/*myhelp-yankmatches*
 myhelp.txt	doc/myhelp.txt	/*myhelp.txt*

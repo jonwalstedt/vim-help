@@ -27,7 +27,8 @@ CONTENTS
   18. Misc.........................................................|myhelp-misc|
   19. Shell commands.....................................|myhelp-shell-commands|
   20. Netrw.......................................................|myhelp-netrw|
-  21. This cheatsheet........................................|myhelp-cheatsheet|
+  21. Split diff.............................................|myhelp-split-diff|
+  22. This cheatsheet........................................|myhelp-cheatsheet|
 
 ===============================================================================
 1. Reloading your vim configuration                       *myhelp-config-reload*
@@ -355,7 +356,7 @@ Checkout, merge, and push into master
 
 `git push origin master`
 ===============================================================================
-17. Misc                                                            *myhelp-misc*
+18. Misc                                                            *myhelp-misc*
 
 ### Sync scroll between splits
 `:set scb!` to toggle scroll sync
@@ -371,7 +372,7 @@ Checkout, merge, and push into master
 ```
 
 ===============================================================================
-18. Shell commands                                        *myhelp-shell-commands*
+19. Shell commands                                        *myhelp-shell-commands*
 
 To run a shell command just prefix with a `!`.
 Example:
@@ -401,7 +402,7 @@ console.log(markup);
 ```
 
 ===============================================================================
-19. Netrw                                                         *myhelp-netrw*
+20. Netrw                                                         *myhelp-netrw*
 ---     -----------------     ----
 Map     Quick Explanation     Link
 ---     -----------------     ----
@@ -502,8 +503,26 @@ QUICK REFERENCE: COMMANDS *netrw-explore-cmds* *netrw-browse-cmds* {{{2
  :Texplore[!] [dir] Tab & Explore..........................|netrw-explore|
  :Vexplore[!] [dir] Vertical Split & Explore...............|netrw-explore|
 
+===============================================================================
+20. Split diff                                               *myhelp-split-diff*
+
+http://vimcasts.org/episodes/comparing-buffers-with-vimdiff/
+
+Using `:diffthis` to compare two buffers
+
+The `:diffthis` command allows us to compare two (or more) buffers that are open
+in an existing Vim session. If we have two split windows containing buffers that
+we want to compare, then we can diff them by running:
+
+`:windo diffthis`
+
+We can turn diff mode off just as easily, by running:
+
+`:windo diffoff`
+
 ================================================================================
-19. This cheatsheet                                           *myhelp-cheatsheet*
+
+22. This cheatsheet                                           *myhelp-cheatsheet*
 
 The contents of this cheatsheet should be stored at
 `~/.config/nvim/plugged/vim-myhelp/doc/myhelp.txt`
